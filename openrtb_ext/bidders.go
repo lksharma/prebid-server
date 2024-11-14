@@ -277,6 +277,8 @@ const (
 	BidderReservedSKAdN   BidderName = "skadn"   // Reserved for Apple's SKAdNetwork OpenRTB extension.
 	BidderReservedTID     BidderName = "tid"     // Reserved for Per-Impression Transactions IDs for Multi-Impression Bid Requests.
 	BidderReservedAE      BidderName = "ae"      // Reserved for FLEDGE Auction Environment
+	BidderReservedIgs     BidderName = "igs"     // Reserved for FLEDGE Interest Group Support
+	BidderReservedPaapi   BidderName = "paapi"   // Reserved for FLEDGE Protected Audience API
 )
 
 // IsBidderNameReserved returns true if the specified name is a case insensitive match for a reserved bidder name.
@@ -336,6 +338,10 @@ func IsPotentialBidder(name string) bool {
 	case BidderReservedTID:
 		return false
 	case BidderReservedAE:
+		return false
+	case BidderReservedIgs:
+		return false
+	case BidderReservedPaapi:
 		return false
 	default:
 		return true
